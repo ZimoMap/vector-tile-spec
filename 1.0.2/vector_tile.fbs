@@ -1,0 +1,24 @@
+namespace vector_tile;
+
+table Feature {
+    coverage:uint16 = 0;
+    name:string;
+    name_zh:string;
+    name_en:string;
+    pmap_kind:string;
+    pmap_min_zoom:uint8;
+    type:byte;
+    geometry:[int16];
+}
+
+table Layer {
+    name:string;
+    features:[Feature];
+}
+
+table Tile {
+    layers:[Layer];
+    extent:uint16 = 4096;
+}
+
+root_type Tile;
